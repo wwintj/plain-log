@@ -48,3 +48,23 @@ function plain_log_enqueue_styles() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'plain_log_enqueue_styles' );
+
+/**
+ * Set the number of posts shown by the front-page posts index.
+ *
+ * @param WP_Query $query The WordPress query instance.
+ */
+function plain_log_home_posts_per_page( $query ) {
+	if (
+		is_admin()
+		|| ! $query->is_main_query()
+		|| ! $query->is_home()
+		|| $query->is_feed()
+		|| ( defined( 'REST_REQUEST' ) && REST_REQUEST )
+	) {
+		return;
+	}
+
+	$query->set( 'posts_per_page', 20 );
+}
+add_action( 'pre_get_posts', 'plain_log_home_posts_per_page' );

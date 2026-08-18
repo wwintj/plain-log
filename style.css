@@ -121,6 +121,82 @@ pre {
 	line-height: 1.25;
 }
 
+.year-group + .year-group {
+	margin-top: 3.5rem;
+}
+
+.year-title {
+	margin: 0 0 1.25rem;
+	font-size: 1.25rem;
+	font-weight: 600;
+	line-height: 1.25;
+}
+
+.home-entry {
+	display: grid;
+	grid-template-columns: 4.5rem minmax(0, 1fr);
+	gap: 0.75rem;
+}
+
+.home-entry + .home-entry {
+	margin-top: 1.25rem;
+}
+
+.home-entry-date {
+	padding-top: 0.1rem;
+	color: var(--plain-log-muted);
+	font-family: var(--plain-log-font-mono);
+	font-size: 0.9rem;
+}
+
+.home-entry-content {
+	min-width: 0;
+}
+
+.home-entry-title {
+	margin: 0;
+	font-size: 1rem;
+	font-weight: 600;
+	line-height: 1.5;
+	overflow-wrap: anywhere;
+}
+
+.home-entry-title a {
+	text-decoration: none;
+}
+
+.home-entry-title a:hover {
+	text-decoration: underline;
+}
+
+.home-entry-category {
+	margin: 0.15rem 0 0;
+	color: var(--plain-log-muted);
+	font-size: 0.875rem;
+	line-height: 1.5;
+	overflow-wrap: anywhere;
+}
+
+.home-pagination {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+	margin-top: 3.5rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid var(--plain-log-border);
+}
+
+.home-pagination-newer {
+	grid-column: 1;
+	justify-self: start;
+}
+
+.home-pagination-older {
+	grid-column: 2;
+	justify-self: end;
+	text-align: right;
+}
+
 .site-footer {
 	padding-block: 1.5rem;
 	border-top: 1px solid var(--plain-log-border);
@@ -163,6 +239,11 @@ pre {
 	.site-header {
 		align-items: flex-start;
 		flex-direction: column;
+	}
+
+	.home-entry {
+		grid-template-columns: 3.75rem minmax(0, 1fr);
+		gap: 0.5rem;
 	}
 }
 
