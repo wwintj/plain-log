@@ -308,10 +308,6 @@ pre {
 	line-height: 1.5;
 }
 
-.single-entry-meta + .single-entry-meta {
-	margin-top: 0.15rem;
-}
-
 .single-entry-meta a,
 .entry-tags a,
 .post-navigation a {
@@ -404,14 +400,16 @@ pre {
 }
 
 .single-entry .entry-content .code-copy-block {
+	position: relative;
 	min-width: 0;
 	max-width: 100%;
 	margin-block: 1.5rem;
 }
 
 .single-entry .entry-content .code-copy-button {
-	display: block;
-	margin: 0 0 0.5rem auto;
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
 	padding: 0.25rem 0.5rem;
 	border: 1px solid var(--plain-log-border);
 	background: var(--plain-log-code-background);
@@ -424,6 +422,7 @@ pre {
 
 .single-entry .entry-content .code-copy-block pre {
 	margin: 0;
+	padding-top: 3rem;
 }
 
 .single-entry .entry-content figure {

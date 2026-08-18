@@ -54,17 +54,14 @@ get_header();
 				<p class="single-entry-meta">
 					<?php esc_html_e( 'Published', 'plain-log' ); ?>
 					<time datetime="<?php echo esc_attr( $published_date ); ?>"><?php echo esc_html( $published_date ); ?></time>
+					<?php if ( $modified_date && $modified_date !== $published_date ) : ?>
+						<span aria-hidden="true"> · </span><?php esc_html_e( 'Updated', 'plain-log' ); ?>
+						<time datetime="<?php echo esc_attr( $modified_date ); ?>"><?php echo esc_html( $modified_date ); ?></time>
+					<?php endif; ?>
 					<?php if ( $category && ! is_wp_error( $category_url ) ) : ?>
 						<span aria-hidden="true"> · </span><a href="<?php echo esc_url( $category_url ); ?>"><?php echo esc_html( $category->name ); ?></a>
 					<?php endif; ?>
 				</p>
-
-				<?php if ( $modified_date && $modified_date !== $published_date ) : ?>
-					<p class="single-entry-meta">
-						<?php esc_html_e( 'Updated', 'plain-log' ); ?>
-						<time datetime="<?php echo esc_attr( $modified_date ); ?>"><?php echo esc_html( $modified_date ); ?></time>
-					</p>
-				<?php endif; ?>
 			</header>
 
 			<div class="entry-content">
