@@ -23,11 +23,16 @@
 		var lineNumbers = document.createElement('div');
 		var lineNumbersFragment = document.createDocumentFragment();
 		var scroll = document.createElement('div');
-		var lineCount = pre.textContent.split(/\r\n|\r|\n/).length;
+		var codeText = pre.textContent;
+		var lineCount = codeText === '' ? 0 : codeText.split(/\r\n|\r|\n/).length;
 		var lineNumber;
 		var resetTimer = 0;
 		var requestId = 0;
 		var i;
+
+		if (lineCount > 0 && /(?:\r\n|\r|\n)$/.test(codeText)) {
+			lineCount -= 1;
+		}
 
 		pre.setAttribute('data-code-copy-enhanced', 'true');
 		wrapper.className = 'code-block';
