@@ -87,28 +87,33 @@ pre {
 	display: flex;
 	align-items: baseline;
 	justify-content: space-between;
-	gap: 1rem 2rem;
-	padding-block: 1.5rem;
+	gap: 0.75rem 2rem;
+	padding-block: 1.25rem;
 	border-bottom: 1px solid var(--plain-log-border);
 }
 
 .site-title {
 	min-width: 0;
 	margin: 0;
-	font-size: 1rem;
+	font-size: 1.0625rem;
 	font-weight: 600;
+	line-height: 1.3;
+	letter-spacing: 0.01em;
 	overflow-wrap: anywhere;
 }
 
 .site-navigation {
 	min-width: 0;
 	max-width: 100%;
+	color: var(--plain-log-muted);
+	font-size: 0.875rem;
+	line-height: 1.5;
 }
 
 .site-navigation ul {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 0.5rem 1rem;
+	gap: 0.5rem 1.125rem;
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -117,6 +122,22 @@ pre {
 .site-navigation li {
 	min-width: 0;
 	overflow-wrap: anywhere;
+}
+
+.site-navigation a:hover,
+.site-navigation a:focus-visible,
+.site-navigation .current-menu-item > a,
+.site-navigation .current-menu-ancestor > a,
+.site-navigation .current_page_ancestor > a,
+.site-navigation .current_page_item > a {
+	color: var(--plain-log-text);
+}
+
+.site-navigation .current-menu-item > a,
+.site-navigation .current-menu-ancestor > a,
+.site-navigation .current_page_ancestor > a,
+.site-navigation .current_page_item > a {
+	font-weight: 600;
 }
 
 .site-main {
@@ -128,12 +149,27 @@ body.single {
 }
 
 body.single .site-header {
+	position: relative;
+	width: min(826px, calc(100% - 2rem));
+	padding-inline: calc(2rem + 1px);
 	border-bottom: 0;
+}
+
+body.single .site-header::after {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 1px;
+	background: var(--plain-log-border);
+	content: "";
+	opacity: 0.55;
+	pointer-events: none;
 }
 
 body.single .site-main {
 	width: min(826px, calc(100% - 2rem));
-	margin-block: 2rem 2.5rem;
+	margin-block: 1.5rem 2.5rem;
 	padding: 2.25rem 2rem 2.5rem;
 	border: 1px solid var(--plain-log-surface-border);
 	border-radius: 12px;
@@ -715,9 +751,13 @@ body.single .site-main {
 	}
 
 	body.single .site-main {
-		margin-block: 1rem 1.5rem;
+		margin-block: 1.25rem 1.5rem;
 		padding: 1.5rem 1rem 1.75rem;
 		border-radius: 8px;
+	}
+
+	body.single .site-header {
+		padding-inline: calc(1rem + 1px);
 	}
 
 	.site-header {
