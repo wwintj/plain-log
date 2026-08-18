@@ -40,11 +40,22 @@ add_action( 'after_setup_theme', 'plain_log_setup' );
  * Enqueue the Theme stylesheet.
  */
 function plain_log_enqueue_styles() {
+	$stylesheet_path    = get_stylesheet_directory() . '/style.css';
+	$stylesheet_version = wp_get_theme()->get( 'Version' );
+
+	if ( is_file( $stylesheet_path ) && is_readable( $stylesheet_path ) ) {
+		$modified_time = filemtime( $stylesheet_path );
+
+		if ( false !== $modified_time ) {
+			$stylesheet_version = (string) $modified_time;
+		}
+	}
+
 	wp_enqueue_style(
 		'plain-log-style',
 		get_stylesheet_uri(),
 		array(),
-		wp_get_theme()->get( 'Version' )
+		$stylesheet_version
 	);
 }
 add_action( 'wp_enqueue_scripts', 'plain_log_enqueue_styles' );
