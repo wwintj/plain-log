@@ -501,8 +501,17 @@ pre {
 	color: var(--plain-log-muted);
 }
 
-.site-footer p {
+.footer-menu {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 1rem;
 	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.footer-menu a {
+	text-decoration: none;
 }
 
 .skip-link,
