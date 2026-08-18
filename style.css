@@ -17,6 +17,9 @@ Domain Path: /languages
 	--plain-log-muted: #666666;
 	--plain-log-border: #d9d9d9;
 	--plain-log-code-background: #f3f3f3;
+	--plain-log-canvas-background: #f4f4f5;
+	--plain-log-surface-background: #ffffff;
+	--plain-log-surface-border: #dedee1;
 	--plain-log-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 	--plain-log-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
@@ -118,6 +121,23 @@ pre {
 
 .site-main {
 	padding-block: 2.5rem;
+}
+
+body.single {
+	background: var(--plain-log-canvas-background);
+}
+
+body.single .site-header {
+	border-bottom: 0;
+}
+
+body.single .site-main {
+	width: min(826px, calc(100% - 2rem));
+	margin-block: 2rem 2.5rem;
+	padding: 2.25rem 2rem 2.5rem;
+	border: 1px solid var(--plain-log-surface-border);
+	border-radius: 12px;
+	background: var(--plain-log-surface-background);
 }
 
 .entry + .entry {
@@ -688,6 +708,18 @@ pre {
 }
 
 @media (max-width: 40rem) {
+	body.single .site-header,
+	body.single .site-main,
+	body.single .site-footer {
+		width: calc(100% - 1rem);
+	}
+
+	body.single .site-main {
+		margin-block: 1rem 1.5rem;
+		padding: 1.5rem 1rem 1.75rem;
+		border-radius: 8px;
+	}
+
 	.site-header {
 		align-items: flex-start;
 		flex-direction: column;
@@ -730,6 +762,9 @@ pre {
 		--plain-log-muted: #aaaaaa;
 		--plain-log-border: #444444;
 		--plain-log-code-background: #242424;
+		--plain-log-canvas-background: #151515;
+		--plain-log-surface-background: #1d1d1d;
+		--plain-log-surface-border: #333333;
 	}
 }
 
@@ -745,6 +780,10 @@ pre {
 	body {
 		background: #ffffff;
 		color: #000000;
+	}
+
+	body.single {
+		background: #ffffff;
 	}
 
 	.site-header,
@@ -763,6 +802,15 @@ pre {
 		width: 100%;
 		margin: 0;
 		padding: 0;
+	}
+
+	body.single .site-main {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+		background: #ffffff;
 	}
 
 	a {
