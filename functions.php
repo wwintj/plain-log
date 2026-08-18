@@ -61,6 +61,61 @@ function plain_log_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'plain_log_enqueue_styles' );
 
 /**
+ * Enqueue the code-copy enhancement only when the current post needs it.
+ */
+function plain_log_enqueue_code_copy() {
+	if (
+		is_admin()
+		|| ! is_singular( 'post' )
+		|| ( defined( 'REST_REQUEST' ) && REST_REQUEST )
+	) {
+		return;
+	}
+
+	$post = get_queried_object();
+
+	if ( ! ( $post instanceof WP_Post ) || post_password_required( $post ) ) {
+		return;
+	}
+
+	$content = $post->post_content;
+
+	if ( ! has_block( 'core/code', $content ) && false === stripos( $content, '<pre' ) ) {
+		return;
+	}
+
+	$script_path    = get_theme_file_path( 'assets/code-copy.js' );
+	$script_version = wp_get_theme()->get( 'Version' );
+
+	if ( is_file( $script_path ) && is_readable( $script_path ) ) {
+		$modified_time = filemtime( $script_path );
+
+		if ( false !== $modified_time ) {
+			$script_version = (string) $modified_time;
+		}
+	}
+
+	wp_enqueue_script(
+		'plain-log-code-copy',
+		get_theme_file_uri( 'assets/code-copy.js' ),
+		array(),
+		$script_version,
+		true
+	);
+
+	wp_localize_script(
+		'plain-log-code-copy',
+		'plainLogCodeCopy',
+		array(
+			'copy'       => __( 'Copy', 'plain-log' ),
+			'copied'     => __( 'Copied', 'plain-log' ),
+			'copyFailed' => __( 'Copy failed', 'plain-log' ),
+		)
+	);
+}
+add_action( 'wp_enqueue_scripts', 'plain_log_enqueue_code_copy' );
+
+/**
  * Set the number of posts shown by the front-page posts index.
  *
  * @param WP_Query $query The WordPress query instance.

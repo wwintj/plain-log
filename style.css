@@ -403,6 +403,29 @@ pre {
 	font-size: inherit;
 }
 
+.single-entry .entry-content .code-copy-block {
+	min-width: 0;
+	max-width: 100%;
+	margin-block: 1.5rem;
+}
+
+.single-entry .entry-content .code-copy-button {
+	display: block;
+	margin: 0 0 0.5rem auto;
+	padding: 0.25rem 0.5rem;
+	border: 1px solid var(--plain-log-border);
+	background: var(--plain-log-code-background);
+	color: var(--plain-log-text);
+	font: inherit;
+	font-size: 0.8125rem;
+	line-height: 1.5;
+	cursor: pointer;
+}
+
+.single-entry .entry-content .code-copy-block pre {
+	margin: 0;
+}
+
 .single-entry .entry-content figure {
 	max-width: 100%;
 	margin-inline: 0;
