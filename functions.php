@@ -13,6 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Register Theme support and navigation locations.
  */
 function plain_log_setup() {
+	load_theme_textdomain( 'plain-log', get_template_directory() . '/languages' );
+
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support(

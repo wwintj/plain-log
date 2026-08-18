@@ -1,0 +1,154 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Plain Log contributors
+# This file is distributed under the same license as the Plain Log package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Plain Log 0.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/wwintj/plain-log/issues\n"
+"POT-Creation-Date: 2026-08-19 03:57+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: 404.php:30
+msgid "Page not found."
+msgstr ""
+
+#: 404.php:32 page-archive.php:23
+msgid "Archive"
+msgstr ""
+
+#: archive.php:25
+msgid "Archives"
+msgstr ""
+
+#: archive.php:51 home.php:34 index.php:27 page-archive.php:57 page.php:23
+#: search.php:38 single.php:32 single.php:88 single.php:99
+msgid "Untitled"
+msgstr ""
+
+#: archive.php:89 home.php:70 search.php:60
+msgid "← Newer"
+msgstr ""
+
+#: archive.php:90 home.php:71 search.php:61
+msgid "Older →"
+msgstr ""
+
+#: archive.php:94
+msgid "Archive pagination"
+msgstr ""
+
+#: archive.php:105 page-archive.php:86
+msgid "No posts found."
+msgstr ""
+
+#: footer.php:20 page-categories.php:32 page-categories.php:62
+msgid "Categories"
+msgstr ""
+
+#: footer.php:29 page-tags.php:32 page-tags.php:62
+msgid "Tags"
+msgstr ""
+
+#: footer.php:35
+msgid "Footer navigation"
+msgstr ""
+
+#: functions.php:35
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:112
+msgid "Copy"
+msgstr ""
+
+#: functions.php:113
+msgid "Copied"
+msgstr ""
+
+#: functions.php:114
+msgid "Copy failed"
+msgstr ""
+
+#: header.php:18
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:25
+msgid "Primary navigation"
+msgstr ""
+
+#: home.php:16 index.php:18
+msgid "Posts"
+msgstr ""
+
+#: home.php:75
+msgid "Posts pagination"
+msgstr ""
+
+#: home.php:86
+msgid "No posts yet."
+msgstr ""
+
+#: index.php:48
+msgid "Nothing found."
+msgstr ""
+
+#: page-categories.php:74
+msgid "No categories found."
+msgstr ""
+
+#: page-search.php:23 search.php:19 searchform.php:12 searchform.php:14
+msgid "Search"
+msgstr ""
+
+#: page-search.php:32 search.php:24
+msgid "Enter a search term."
+msgstr ""
+
+#: page-tags.php:74
+msgid "No tags found."
+msgstr ""
+
+#: search.php:65
+msgid "Search pagination"
+msgstr ""
+
+#: search.php:76
+msgid "No results."
+msgstr ""
+
+#: single.php:55
+msgid "Published"
+msgstr ""
+
+#: single.php:58
+msgid "Updated"
+msgstr ""
+
+#: single.php:74
+msgid "Tags:"
+msgstr ""
+
+#: single.php:82
+msgid "Post navigation"
+msgstr ""
+
+#. translators: %s: Previous post title.
+#: single.php:91
+#, php-format
+msgid "Previous: %s"
+msgstr ""
+
+#. translators: %s: Next post title.
+#: single.php:102
+#, php-format
+msgid "Next: %s"
+msgstr ""

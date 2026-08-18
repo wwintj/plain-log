@@ -8,6 +8,7 @@ Version: 0.1.0
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: plain-log
+Domain Path: /languages
 */
 
 :root {
@@ -89,9 +90,16 @@ pre {
 }
 
 .site-title {
+	min-width: 0;
 	margin: 0;
 	font-size: 1rem;
 	font-weight: 600;
+	overflow-wrap: anywhere;
+}
+
+.site-navigation {
+	min-width: 0;
+	max-width: 100%;
 }
 
 .site-navigation ul {
@@ -101,6 +109,11 @@ pre {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+}
+
+.site-navigation li {
+	min-width: 0;
+	overflow-wrap: anywhere;
 }
 
 .site-main {
@@ -205,16 +218,20 @@ pre {
 .home-pagination-newer,
 .archive-pagination-newer,
 .search-pagination-newer {
+	min-width: 0;
 	grid-column: 1;
 	justify-self: start;
+	overflow-wrap: anywhere;
 }
 
 .home-pagination-older,
 .archive-pagination-older,
 .search-pagination-older {
+	min-width: 0;
 	grid-column: 2;
 	justify-self: end;
 	text-align: right;
+	overflow-wrap: anywhere;
 }
 
 .archive-header {
@@ -240,6 +257,7 @@ pre {
 .search-field,
 .search-submit {
 	min-width: 0;
+	max-width: 100%;
 	padding: 0.5rem 0.75rem;
 	border: 1px solid var(--plain-log-border);
 	background: var(--plain-log-background);
@@ -282,7 +300,9 @@ pre {
 }
 
 .taxonomy-index-count {
+	min-width: 0;
 	color: var(--plain-log-muted);
+	overflow-wrap: anywhere;
 }
 
 .single-entry {
@@ -306,6 +326,7 @@ pre {
 	color: var(--plain-log-muted);
 	font-size: 0.875rem;
 	line-height: 1.5;
+	overflow-wrap: anywhere;
 }
 
 .single-entry-meta a,
@@ -410,6 +431,7 @@ pre {
 	position: absolute;
 	top: 0.5rem;
 	right: 0.5rem;
+	max-width: calc(100% - 1rem);
 	padding: 0.25rem 0.5rem;
 	border: 1px solid var(--plain-log-border);
 	background: var(--plain-log-code-background);
@@ -437,27 +459,27 @@ pre {
 	line-height: 1.5;
 }
 
-.single-entry .entry-content .wp-block-table {
+.entry-content .wp-block-table {
 	max-width: 100%;
 	overflow-x: auto;
 }
 
-.single-entry .entry-content table {
+.entry-content table {
 	display: block;
 	max-width: 100%;
 	overflow-x: auto;
 	border-collapse: collapse;
 }
 
-.single-entry .entry-content .wp-block-table table {
+.entry-content .wp-block-table table {
 	display: table;
 	min-width: 100%;
 	margin-block: 0;
 	overflow: visible;
 }
 
-.single-entry .entry-content th,
-.single-entry .entry-content td {
+.entry-content th,
+.entry-content td {
 	padding: 0.5rem 0.75rem;
 	border: 1px solid var(--plain-log-border);
 	text-align: start;
@@ -536,6 +558,11 @@ pre {
 	text-decoration: none;
 }
 
+.footer-menu li {
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+
 .skip-link,
 .screen-reader-text {
 	position: absolute;
@@ -598,5 +625,73 @@ pre {
 		--plain-log-muted: #aaaaaa;
 		--plain-log-border: #444444;
 		--plain-log-code-background: #242424;
+	}
+}
+
+@media print {
+	:root {
+		--plain-log-background: #ffffff;
+		--plain-log-text: #000000;
+		--plain-log-muted: #333333;
+		--plain-log-border: #999999;
+		--plain-log-code-background: #f3f3f3;
+	}
+
+	body {
+		background: #ffffff;
+		color: #000000;
+	}
+
+	.site-header,
+	.site-footer,
+	.skip-link,
+	.home-pagination,
+	.archive-pagination,
+	.search-pagination,
+	.post-navigation,
+	.search-form,
+	.code-copy-button {
+		display: none;
+	}
+
+	.site-main {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+
+	a {
+		color: #000000;
+		text-decoration: underline;
+	}
+
+	.single-entry .entry-content .code-copy-block pre {
+		padding-top: 1rem;
+	}
+
+	pre,
+	.single-entry .entry-content pre {
+		overflow: visible;
+		background: #f3f3f3;
+		color: #000000;
+		white-space: pre-wrap;
+		overflow-wrap: anywhere;
+	}
+
+	.entry-content .wp-block-table {
+		overflow: visible;
+	}
+
+	.entry-content table,
+	.entry-content .wp-block-table table {
+		display: table;
+		width: 100%;
+		max-width: 100%;
+		overflow: visible;
+	}
+
+	.entry-content th,
+	.entry-content td {
+		overflow-wrap: anywhere;
 	}
 }
