@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Plain Log 0.1.0\n"
+"Project-Id-Version: Plain Log 1.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/wwintj/plain-log/issues\n"
-"POT-Creation-Date: 2026-08-19 03:57+0800\n"
+"POT-Creation-Date: 2026-08-19 04:04+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
