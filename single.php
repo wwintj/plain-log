@@ -88,7 +88,10 @@ get_header();
 						$previous_title = __( 'Untitled', 'plain-log' );
 					}
 					?>
-					<a rel="prev" href="<?php echo esc_url( get_permalink( $previous_post ) ); ?>" aria-label="<?php echo esc_attr( sprintf( /* translators: %s: Previous post title. */ __( 'Previous: %s', 'plain-log' ), $previous_title ) ); ?>">← <?php echo esc_html( $previous_title ); ?></a>
+					<a rel="prev" href="<?php echo esc_url( get_permalink( $previous_post ) ); ?>" aria-label="<?php echo esc_attr( sprintf( /* translators: %s: Previous post title. */ __( 'Previous: %s', 'plain-log' ), $previous_title ) ); ?>">
+						<span class="post-navigation-label" aria-hidden="true">←</span>
+						<span class="post-navigation-title"><?php echo esc_html( $previous_title ); ?></span>
+					</a>
 				<?php endif; ?>
 
 				<?php if ( $next_post ) : ?>
@@ -99,7 +102,10 @@ get_header();
 						$next_title = __( 'Untitled', 'plain-log' );
 					}
 					?>
-					<a rel="next" href="<?php echo esc_url( get_permalink( $next_post ) ); ?>" aria-label="<?php echo esc_attr( sprintf( /* translators: %s: Next post title. */ __( 'Next: %s', 'plain-log' ), $next_title ) ); ?>"><?php echo esc_html( $next_title ); ?> →</a>
+					<a rel="next" href="<?php echo esc_url( get_permalink( $next_post ) ); ?>" aria-label="<?php echo esc_attr( sprintf( /* translators: %s: Next post title. */ __( 'Next: %s', 'plain-log' ), $next_title ) ); ?>">
+						<span class="post-navigation-title"><?php echo esc_html( $next_title ); ?></span>
+						<span class="post-navigation-label" aria-hidden="true">→</span>
+					</a>
 				<?php endif; ?>
 			</nav>
 		<?php endif; ?>
