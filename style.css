@@ -193,6 +193,216 @@ pre {
 	text-align: right;
 }
 
+.single-entry {
+	min-width: 0;
+}
+
+.single-entry-header {
+	margin-bottom: 2.5rem;
+}
+
+.single-entry-title {
+	margin: 0;
+	font-size: 1.875rem;
+	font-weight: 600;
+	line-height: 1.25;
+	overflow-wrap: anywhere;
+}
+
+.single-entry-meta {
+	margin: 0.5rem 0 0;
+	color: var(--plain-log-muted);
+	font-size: 0.875rem;
+	line-height: 1.5;
+}
+
+.single-entry-meta + .single-entry-meta {
+	margin-top: 0.15rem;
+}
+
+.single-entry-meta a,
+.entry-tags a,
+.post-navigation a {
+	text-decoration: none;
+}
+
+.single-entry .entry-content {
+	min-width: 0;
+	max-width: 100%;
+	overflow-wrap: anywhere;
+}
+
+.single-entry .entry-content > :first-child {
+	margin-top: 0;
+}
+
+.single-entry .entry-content > :last-child {
+	margin-bottom: 0;
+}
+
+.single-entry .entry-content p,
+.single-entry .entry-content ul,
+.single-entry .entry-content ol,
+.single-entry .entry-content blockquote,
+.single-entry .entry-content pre,
+.single-entry .entry-content figure,
+.single-entry .entry-content table,
+.single-entry .entry-content hr {
+	margin-block: 1.5rem;
+}
+
+.single-entry .entry-content h2,
+.single-entry .entry-content h3,
+.single-entry .entry-content h4 {
+	margin: 2.5rem 0 1rem;
+	font-weight: 600;
+	line-height: 1.3;
+	overflow-wrap: anywhere;
+}
+
+.single-entry .entry-content h2 {
+	font-size: 1.4375rem;
+}
+
+.single-entry .entry-content h3 {
+	font-size: 1.1875rem;
+}
+
+.single-entry .entry-content h4 {
+	font-size: 1rem;
+}
+
+.single-entry .entry-content ul,
+.single-entry .entry-content ol {
+	padding-inline-start: 1.5rem;
+}
+
+.single-entry .entry-content li > ul,
+.single-entry .entry-content li > ol {
+	margin-block: 0.25rem;
+}
+
+.single-entry .entry-content a {
+	text-decoration: underline;
+}
+
+.single-entry .entry-content blockquote {
+	margin-inline: 0;
+	padding-inline-start: 1.25rem;
+	border-inline-start: 3px solid var(--plain-log-border);
+	color: var(--plain-log-muted);
+}
+
+.single-entry .entry-content pre {
+	white-space: pre;
+	overflow-x: auto;
+	tab-size: 4;
+}
+
+.single-entry .entry-content :not(pre) > code {
+	padding: 0.1em 0.25em;
+	background: var(--plain-log-code-background);
+}
+
+.single-entry .entry-content pre code {
+	padding: 0;
+	background: transparent;
+	color: inherit;
+	font-size: inherit;
+}
+
+.single-entry .entry-content figure {
+	max-width: 100%;
+	margin-inline: 0;
+}
+
+.single-entry .entry-content figcaption {
+	margin-top: 0.5rem;
+	color: var(--plain-log-muted);
+	font-size: 0.875rem;
+	line-height: 1.5;
+}
+
+.single-entry .entry-content .wp-block-table {
+	max-width: 100%;
+	overflow-x: auto;
+}
+
+.single-entry .entry-content table {
+	display: block;
+	max-width: 100%;
+	overflow-x: auto;
+	border-collapse: collapse;
+}
+
+.single-entry .entry-content .wp-block-table table {
+	display: table;
+	min-width: 100%;
+	margin-block: 0;
+	overflow: visible;
+}
+
+.single-entry .entry-content th,
+.single-entry .entry-content td {
+	padding: 0.5rem 0.75rem;
+	border: 1px solid var(--plain-log-border);
+	text-align: start;
+	vertical-align: top;
+}
+
+.single-entry .entry-content hr {
+	height: 0;
+	border: 0;
+	border-top: 1px solid var(--plain-log-border);
+}
+
+.post-password-form label {
+	display: inline-block;
+}
+
+.post-password-form input {
+	max-width: 100%;
+	padding: 0.4rem 0.6rem;
+	border: 1px solid var(--plain-log-border);
+	background: var(--plain-log-background);
+	color: var(--plain-log-text);
+	font: inherit;
+}
+
+.post-password-form input[type="submit"] {
+	cursor: pointer;
+	font-weight: 600;
+}
+
+.single-entry-footer {
+	margin-top: 2.5rem;
+}
+
+.entry-tags {
+	margin: 0;
+	color: var(--plain-log-muted);
+	overflow-wrap: anywhere;
+}
+
+.entry-tags-label {
+	font-weight: 600;
+}
+
+.post-navigation {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	margin-top: 3rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid var(--plain-log-border);
+}
+
+.post-navigation a {
+	align-self: flex-start;
+	max-width: 100%;
+	overflow-wrap: anywhere;
+}
+
 .site-footer {
 	padding-block: 1.5rem;
 	border-top: 1px solid var(--plain-log-border);
@@ -240,6 +450,10 @@ pre {
 	.home-entry {
 		grid-template-columns: 3.75rem minmax(0, 1fr);
 		gap: 0.5rem;
+	}
+
+	.single-entry-title {
+		font-size: 1.625rem;
 	}
 }
 
