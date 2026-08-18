@@ -9,3 +9,169 @@ License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: plain-log
 */
+
+:root {
+	--plain-log-background: #ffffff;
+	--plain-log-text: #1a1a1a;
+	--plain-log-muted: #666666;
+	--plain-log-border: #d9d9d9;
+	--plain-log-code-background: #f3f3f3;
+	--plain-log-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	--plain-log-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	overflow-wrap: break-word;
+}
+
+body {
+	margin: 0;
+	background: var(--plain-log-background);
+	color: var(--plain-log-text);
+	font-family: var(--plain-log-font-sans);
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.75;
+}
+
+a {
+	color: inherit;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.18em;
+}
+
+a:hover {
+	text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 3px;
+}
+
+img {
+	height: auto;
+	max-width: 100%;
+}
+
+pre,
+code,
+kbd,
+samp {
+	font-family: var(--plain-log-font-mono);
+}
+
+pre {
+	max-width: 100%;
+	overflow-x: auto;
+	padding: 1rem;
+	background: var(--plain-log-code-background);
+}
+
+.site-header,
+.site-main,
+.site-footer {
+	width: min(760px, calc(100% - 2rem));
+	margin-inline: auto;
+}
+
+.site-header {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 1rem 2rem;
+	padding-block: 1.5rem;
+	border-bottom: 1px solid var(--plain-log-border);
+}
+
+.site-title {
+	margin: 0;
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+.site-title a {
+	text-decoration: none;
+}
+
+.site-navigation ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 1rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.site-main {
+	padding-block: 2.5rem;
+}
+
+.entry + .entry {
+	margin-top: 2.5rem;
+	padding-top: 2.5rem;
+	border-top: 1px solid var(--plain-log-border);
+}
+
+.entry-title {
+	line-height: 1.25;
+}
+
+.site-footer {
+	padding-block: 1.5rem;
+	border-top: 1px solid var(--plain-log-border);
+	color: var(--plain-log-muted);
+}
+
+.site-footer p {
+	margin: 0;
+}
+
+.skip-link,
+.screen-reader-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.skip-link:focus {
+	top: 1rem;
+	left: 1rem;
+	z-index: 100000;
+	width: auto;
+	height: auto;
+	padding: 0.5rem 0.75rem;
+	margin: 0;
+	overflow: visible;
+	clip: auto;
+	white-space: normal;
+	background: var(--plain-log-background);
+	color: var(--plain-log-text);
+}
+
+@media (max-width: 40rem) {
+	.site-header {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--plain-log-background: #171717;
+		--plain-log-text: #eeeeee;
+		--plain-log-muted: #aaaaaa;
+		--plain-log-border: #444444;
+		--plain-log-code-background: #242424;
+	}
+}
