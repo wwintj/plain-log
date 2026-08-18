@@ -109,6 +109,7 @@ function plain_log_enqueue_code_copy() {
 		'plain-log-code-copy',
 		'plainLogCodeCopy',
 		array(
+			'code'       => __( 'Code', 'plain-log' ),
 			'copy'       => __( 'Copy', 'plain-log' ),
 			'copied'     => __( 'Copied', 'plain-log' ),
 			'copyFailed' => __( 'Copy failed', 'plain-log' ),

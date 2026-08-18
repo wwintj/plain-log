@@ -3,30 +3,43 @@
 
 	var labels = window.plainLogCodeCopy;
 
-	if (!labels) {
+	if (!labels || !labels.code || !labels.copy || !labels.copied || !labels.copyFailed) {
 		return;
 	}
 
 	document.querySelectorAll('.single-entry .entry-content pre').forEach(function (pre) {
-		if (pre.getAttribute('data-code-copy-enhanced') === 'true') {
+		if (
+			pre.getAttribute('data-code-copy-enhanced') === 'true'
+			|| pre.closest('.code-block')
+		) {
 			return;
 		}
 
 		var wrapper = document.createElement('div');
+		var toolbar = document.createElement('div');
+		var toolbarLabel = document.createElement('span');
 		var button = document.createElement('button');
+		var content = document.createElement('div');
 		var resetTimer = 0;
 		var requestId = 0;
 
 		pre.setAttribute('data-code-copy-enhanced', 'true');
-		wrapper.className = 'code-copy-block';
+		wrapper.className = 'code-block';
+		toolbar.className = 'code-toolbar';
+		toolbarLabel.className = 'code-toolbar-label';
+		toolbarLabel.textContent = labels.code;
 		button.className = 'code-copy-button';
 		button.type = 'button';
 		button.textContent = labels.copy;
 		button.setAttribute('aria-live', 'polite');
+		content.className = 'code-content';
 
 		pre.parentNode.insertBefore(wrapper, pre);
-		wrapper.appendChild(button);
-		wrapper.appendChild(pre);
+		wrapper.appendChild(toolbar);
+		wrapper.appendChild(content);
+		toolbar.appendChild(toolbarLabel);
+		toolbar.appendChild(button);
+		content.appendChild(pre);
 
 		function showStatus(text, activeRequestId) {
 			window.clearTimeout(resetTimer);

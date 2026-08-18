@@ -17,6 +17,9 @@ Domain Path: /languages
 	--plain-log-muted: #666666;
 	--plain-log-border: #d9d9d9;
 	--plain-log-code-background: #f3f3f3;
+	--plain-log-code-border: #d8d8dc;
+	--plain-log-code-toolbar-background: #f0f0f2;
+	--plain-log-code-surface-background: #f7f7f8;
 	--plain-log-canvas-background: #f4f4f5;
 	--plain-log-surface-background: #ffffff;
 	--plain-log-surface-border: #dedee1;
@@ -72,8 +75,14 @@ samp {
 pre {
 	max-width: 100%;
 	overflow-x: auto;
-	padding: 1rem;
-	background: var(--plain-log-code-background);
+	padding: 1.125rem 1.25rem;
+	border: 1px solid var(--plain-log-code-border);
+	border-radius: 7px;
+	background: var(--plain-log-code-surface-background);
+	font-size: 0.925rem;
+	line-height: 1.65;
+	white-space: pre;
+	tab-size: 4;
 }
 
 .site-header,
@@ -530,6 +539,7 @@ body.single .site-main {
 }
 
 .single-entry .entry-content pre {
+	margin-block: 1.75rem;
 	white-space: pre;
 	overflow-x: auto;
 	tab-size: 4;
@@ -551,33 +561,73 @@ body.single .site-main {
 	background: transparent;
 	color: inherit;
 	font-size: inherit;
+	white-space: inherit;
 }
 
-.single-entry .entry-content .code-copy-block {
-	position: relative;
+.single-entry .entry-content .code-block {
 	min-width: 0;
 	max-width: 100%;
-	margin-block: 1.5rem;
+	margin-block: 1.75rem;
+	overflow: hidden;
+	border: 1px solid var(--plain-log-code-border);
+	border-radius: 7px;
+	background: var(--plain-log-code-surface-background);
+}
+
+.single-entry .entry-content .code-toolbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 0.5rem 0.75rem;
+	min-width: 0;
+	padding: 0.5rem 0.75rem;
+	border-bottom: 1px solid var(--plain-log-code-border);
+	background: var(--plain-log-code-toolbar-background);
+	font-size: 0.8125rem;
+	line-height: 1.5;
+}
+
+.single-entry .entry-content .code-toolbar-label {
+	min-width: 0;
+	color: var(--plain-log-muted);
+	font-weight: 600;
+	overflow-wrap: anywhere;
 }
 
 .single-entry .entry-content .code-copy-button {
-	position: absolute;
-	top: 0.5rem;
-	right: 0.5rem;
-	max-width: calc(100% - 1rem);
+	flex: 0 0 auto;
+	min-width: 6.5rem;
+	max-width: 100%;
+	margin-inline-start: auto;
 	padding: 0.25rem 0.5rem;
-	border: 1px solid var(--plain-log-border);
-	background: var(--plain-log-code-background);
-	color: var(--plain-log-text);
+	border: 1px solid var(--plain-log-code-border);
+	border-radius: 4px;
+	background: transparent;
+	color: var(--plain-log-muted);
 	font: inherit;
 	font-size: 0.8125rem;
 	line-height: 1.5;
+	white-space: nowrap;
 	cursor: pointer;
 }
 
-.single-entry .entry-content .code-copy-block pre {
+.single-entry .entry-content .code-copy-button:hover,
+.single-entry .entry-content .code-copy-button:focus-visible {
+	color: var(--plain-log-text);
+}
+
+.single-entry .entry-content .code-content {
+	min-width: 0;
+	max-width: 100%;
+	background: var(--plain-log-code-surface-background);
+}
+
+.single-entry .entry-content .code-block pre {
 	margin: 0;
-	padding-top: 3rem;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
 }
 
 .single-entry .entry-content figure {
@@ -806,6 +856,9 @@ body.single .site-main {
 		--plain-log-muted: #aaaaaa;
 		--plain-log-border: #444444;
 		--plain-log-code-background: #242424;
+		--plain-log-code-border: #3a3a3d;
+		--plain-log-code-toolbar-background: #292929;
+		--plain-log-code-surface-background: #232323;
 		--plain-log-canvas-background: #151515;
 		--plain-log-surface-background: #1d1d1d;
 		--plain-log-surface-border: #333333;
@@ -819,6 +872,9 @@ body.single .site-main {
 		--plain-log-muted: #333333;
 		--plain-log-border: #999999;
 		--plain-log-code-background: #f3f3f3;
+		--plain-log-code-border: #999999;
+		--plain-log-code-toolbar-background: #ffffff;
+		--plain-log-code-surface-background: #f3f3f3;
 	}
 
 	body {
@@ -838,6 +894,7 @@ body.single .site-main {
 	.search-pagination,
 	.post-navigation,
 	.search-form,
+	.code-toolbar,
 	.code-copy-button {
 		display: none;
 	}
@@ -862,8 +919,15 @@ body.single .site-main {
 		text-decoration: underline;
 	}
 
-	.single-entry .entry-content .code-copy-block pre {
-		padding-top: 1rem;
+	.single-entry .entry-content .code-block {
+		overflow: visible;
+		border-color: #999999;
+		border-radius: 0;
+		background: #ffffff;
+	}
+
+	.single-entry .entry-content .code-content {
+		background: transparent;
 	}
 
 	pre,

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Plain Log 1.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/wwintj/plain-log/issues\n"
-"POT-Creation-Date: 2026-08-19 04:04+0800\n"
+"POT-Creation-Date: 2026-08-19 05:43+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgid "Archives"
 msgstr ""
 
 #: archive.php:51 home.php:34 index.php:27 page-archive.php:57 page.php:23
-#: search.php:38 single.php:32 single.php:88 single.php:99
+#: search.php:38 single.php:32 single.php:88 single.php:102
 msgid "Untitled"
 msgstr ""
 
@@ -66,14 +66,18 @@ msgid "Primary Menu"
 msgstr ""
 
 #: functions.php:112
-msgid "Copy"
+msgid "Code"
 msgstr ""
 
 #: functions.php:113
-msgid "Copied"
+msgid "Copy"
 msgstr ""
 
 #: functions.php:114
+msgid "Copied"
+msgstr ""
+
+#: functions.php:115
 msgid "Copy failed"
 msgstr ""
 
@@ -148,7 +152,7 @@ msgid "Previous: %s"
 msgstr ""
 
 #. translators: %s: Next post title.
-#: single.php:102
+#: single.php:105
 #, php-format
 msgid "Next: %s"
 msgstr ""
