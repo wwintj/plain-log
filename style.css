@@ -84,12 +84,28 @@ pre {
 }
 
 .site-header {
+	position: relative;
 	display: flex;
 	align-items: baseline;
 	justify-content: space-between;
 	gap: 0.75rem 2rem;
 	padding-block: 1.25rem;
-	border-bottom: 1px solid var(--plain-log-border);
+}
+
+.site-header::after,
+.site-footer::before {
+	position: absolute;
+	right: 0;
+	left: 0;
+	height: 1px;
+	background: var(--plain-log-border);
+	content: "";
+	opacity: 0.55;
+	pointer-events: none;
+}
+
+.site-header::after {
+	bottom: 0;
 }
 
 .site-title {
@@ -102,15 +118,18 @@ pre {
 	overflow-wrap: anywhere;
 }
 
-.site-navigation {
+.site-navigation,
+.footer-navigation {
 	min-width: 0;
 	max-width: 100%;
 	color: var(--plain-log-muted);
 	font-size: 0.875rem;
+	font-weight: 400;
 	line-height: 1.5;
 }
 
-.site-navigation ul {
+.site-navigation ul,
+.footer-menu {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.5rem 1.125rem;
@@ -119,13 +138,16 @@ pre {
 	list-style: none;
 }
 
-.site-navigation li {
+.site-navigation li,
+.footer-menu li {
 	min-width: 0;
 	overflow-wrap: anywhere;
 }
 
 .site-navigation a:hover,
 .site-navigation a:focus-visible,
+.footer-navigation a:hover,
+.footer-navigation a:focus-visible,
 .site-navigation .current-menu-item > a,
 .site-navigation .current-menu-ancestor > a,
 .site-navigation .current_page_ancestor > a,
@@ -149,22 +171,13 @@ body.single {
 }
 
 body.single .site-header {
-	position: relative;
 	width: min(826px, calc(100% - 2rem));
 	padding-inline: calc(2rem + 1px);
-	border-bottom: 0;
 }
 
-body.single .site-header::after {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	height: 1px;
-	background: var(--plain-log-border);
-	content: "";
-	opacity: 0.55;
-	pointer-events: none;
+body.single .site-footer {
+	width: min(826px, calc(100% - 2rem));
+	padding-inline: calc(2rem + 1px);
 }
 
 body.single .site-main {
@@ -692,27 +705,17 @@ body.single .site-main {
 }
 
 .site-footer {
-	padding-block: 1.5rem;
-	border-top: 1px solid var(--plain-log-border);
+	position: relative;
+	padding-block: 1.25rem;
 	color: var(--plain-log-muted);
 }
 
-.footer-menu {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.5rem 1rem;
-	margin: 0;
-	padding: 0;
-	list-style: none;
+.site-footer::before {
+	top: 0;
 }
 
-.footer-menu a {
+.footer-navigation a {
 	text-decoration: none;
-}
-
-.footer-menu li {
-	min-width: 0;
-	overflow-wrap: anywhere;
 }
 
 .skip-link,
@@ -756,7 +759,8 @@ body.single .site-main {
 		border-radius: 8px;
 	}
 
-	body.single .site-header {
+	body.single .site-header,
+	body.single .site-footer {
 		padding-inline: calc(1rem + 1px);
 	}
 
