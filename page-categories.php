@@ -1,0 +1,82 @@
+<?php
+/**
+ * Categories index Page template.
+ *
+ * @package Plain_Log
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+get_header();
+?>
+
+<main id="primary" class="site-main">
+	<?php
+	while ( have_posts() ) :
+		the_post();
+
+		$page_title     = get_the_title();
+		$page_content   = get_the_content();
+		$category_items = array();
+		$categories     = get_categories(
+			array(
+				'hide_empty' => true,
+				'orderby'    => 'name',
+				'order'      => 'ASC',
+			)
+		);
+
+		if ( '' === trim( $page_title ) ) {
+			$page_title = __( 'Categories', 'plain-log' );
+		}
+
+		if ( ! is_wp_error( $categories ) ) {
+			foreach ( $categories as $category ) {
+				$category_url = get_category_link( $category->term_id );
+
+				if ( ! is_wp_error( $category_url ) ) {
+					$category_items[] = array(
+						'name'  => $category->name,
+						'count' => $category->count,
+						'url'   => $category_url,
+					);
+				}
+			}
+		}
+		?>
+
+		<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'single-entry', 'taxonomy-index-page' ) ); ?>>
+			<header class="single-entry-header">
+				<h1 class="single-entry-title"><?php echo esc_html( $page_title ); ?></h1>
+			</header>
+
+			<?php if ( '' !== trim( $page_content ) ) : ?>
+				<div class="entry-content">
+					<?php the_content(); ?>
+				</div>
+			<?php endif; ?>
+
+			<section class="taxonomy-index" aria-labelledby="categories-index-title">
+				<h2 id="categories-index-title" class="screen-reader-text"><?php esc_html_e( 'Categories', 'plain-log' ); ?></h2>
+
+				<?php if ( ! empty( $category_items ) ) : ?>
+					<ul class="taxonomy-index-list">
+						<?php foreach ( $category_items as $category_item ) : ?>
+							<li class="taxonomy-index-item">
+								<a href="<?php echo esc_url( $category_item['url'] ); ?>"><?php echo esc_html( $category_item['name'] ); ?></a>
+								<span class="taxonomy-index-count"><?php echo esc_html( number_format_i18n( $category_item['count'] ) ); ?></span>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				<?php else : ?>
+					<p><?php esc_html_e( 'No categories found.', 'plain-log' ); ?></p>
+				<?php endif; ?>
+			</section>
+		</article>
+	<?php endwhile; ?>
+</main>
+
+<?php
+get_footer();

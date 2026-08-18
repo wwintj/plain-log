@@ -79,3 +79,23 @@ function plain_log_home_posts_per_page( $query ) {
 	$query->set( 'posts_per_page', 20 );
 }
 add_action( 'pre_get_posts', 'plain_log_home_posts_per_page' );
+
+/**
+ * Set the number of results shown by the front-end search query.
+ *
+ * @param WP_Query $query The WordPress query instance.
+ */
+function plain_log_search_results_per_page( $query ) {
+	if (
+		is_admin()
+		|| ! $query->is_main_query()
+		|| ! $query->is_search()
+		|| $query->is_feed()
+		|| ( defined( 'REST_REQUEST' ) && REST_REQUEST )
+	) {
+		return;
+	}
+
+	$query->set( 'posts_per_page', 20 );
+}
+add_action( 'pre_get_posts', 'plain_log_search_results_per_page' );
