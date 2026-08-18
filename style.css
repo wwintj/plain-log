@@ -128,28 +128,33 @@ pre {
 	line-height: 1.25;
 }
 
-.home-entry {
+.home-entry,
+.archive-entry {
 	display: grid;
 	grid-template-columns: 4.5rem minmax(0, 1fr);
 	gap: 0.75rem;
 }
 
-.home-entry + .home-entry {
+.home-entry + .home-entry,
+.archive-entry + .archive-entry {
 	margin-top: 1.25rem;
 }
 
-.home-entry-date {
+.home-entry-date,
+.archive-entry-date {
 	padding-top: 0.1rem;
 	color: var(--plain-log-muted);
 	font-family: var(--plain-log-font-mono);
 	font-size: 0.9rem;
 }
 
-.home-entry-content {
+.home-entry-content,
+.archive-entry-content {
 	min-width: 0;
 }
 
-.home-entry-title {
+.home-entry-title,
+.archive-entry-title {
 	margin: 0;
 	font-size: 1rem;
 	font-weight: 600;
@@ -168,12 +173,15 @@ pre {
 .site-title a,
 .site-navigation a,
 .home-entry-title a,
+.archive-entry-title a,
 .home-entry-category a,
-.home-pagination a {
+.home-pagination a,
+.archive-pagination a {
 	text-decoration: none;
 }
 
-.home-pagination {
+.home-pagination,
+.archive-pagination {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 1rem;
@@ -182,15 +190,29 @@ pre {
 	border-top: 1px solid var(--plain-log-border);
 }
 
-.home-pagination-newer {
+.home-pagination-newer,
+.archive-pagination-newer {
 	grid-column: 1;
 	justify-self: start;
 }
 
-.home-pagination-older {
+.home-pagination-older,
+.archive-pagination-older {
 	grid-column: 2;
 	justify-self: end;
 	text-align: right;
+}
+
+.archive-header {
+	margin-bottom: 2.5rem;
+}
+
+.archive-title {
+	margin: 0;
+	font-size: 1.875rem;
+	font-weight: 600;
+	line-height: 1.25;
+	overflow-wrap: anywhere;
 }
 
 .single-entry {
@@ -447,12 +469,14 @@ pre {
 		flex-direction: column;
 	}
 
-	.home-entry {
+	.home-entry,
+	.archive-entry {
 		grid-template-columns: 3.75rem minmax(0, 1fr);
 		gap: 0.5rem;
 	}
 
-	.single-entry-title {
+	.single-entry-title,
+	.archive-title {
 		font-size: 1.625rem;
 	}
 }
