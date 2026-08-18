@@ -16,8 +16,15 @@ Domain Path: /languages
 	--plain-log-text: #1a1a1a;
 	--plain-log-muted: #666666;
 	--plain-log-border: #d9d9d9;
+	--plain-log-chrome-background: #ececef;
+	--plain-log-chrome-border: #d7d7da;
 	--plain-log-code-background: #f3f3f3;
 	--plain-log-code-border: #d8d8dc;
+	--plain-log-code-font-size: 0.925rem;
+	--plain-log-code-line-height: 1.65;
+	--plain-log-code-padding-block: 1.125rem;
+	--plain-log-code-padding-inline: 1.25rem;
+	--plain-log-code-gutter-background: #f1f1f3;
 	--plain-log-code-toolbar-background: #f0f0f2;
 	--plain-log-code-surface-background: #f7f7f8;
 	--plain-log-canvas-background: #f4f4f5;
@@ -75,12 +82,12 @@ samp {
 pre {
 	max-width: 100%;
 	overflow-x: auto;
-	padding: 1.125rem 1.25rem;
+	padding: var(--plain-log-code-padding-block) var(--plain-log-code-padding-inline);
 	border: 1px solid var(--plain-log-code-border);
 	border-radius: 7px;
 	background: var(--plain-log-code-surface-background);
-	font-size: 0.925rem;
-	line-height: 1.65;
+	font-size: var(--plain-log-code-font-size);
+	line-height: var(--plain-log-code-line-height);
 	white-space: pre;
 	tab-size: 4;
 }
@@ -93,7 +100,6 @@ pre {
 }
 
 .site-header {
-	position: relative;
 	display: flex;
 	align-items: baseline;
 	justify-content: space-between;
@@ -101,20 +107,10 @@ pre {
 	padding-block: 1.25rem;
 }
 
-.site-header::after,
-.site-footer::before {
-	position: absolute;
-	right: 0;
-	left: 0;
-	height: 1px;
-	background: var(--plain-log-border);
-	content: "";
-	opacity: 0.55;
-	pointer-events: none;
-}
-
-.site-header::after {
-	bottom: 0;
+.site-header,
+.site-footer {
+	border-block: 1px solid var(--plain-log-chrome-border);
+	background: var(--plain-log-chrome-background);
 }
 
 .site-title {
@@ -560,7 +556,9 @@ body.single .site-main {
 	padding: 0;
 	background: transparent;
 	color: inherit;
+	font-family: inherit;
 	font-size: inherit;
+	line-height: inherit;
 	white-space: inherit;
 }
 
@@ -597,17 +595,18 @@ body.single .site-main {
 
 .single-entry .entry-content .code-copy-button {
 	flex: 0 0 auto;
-	min-width: 6.5rem;
+	min-inline-size: 6.5rem;
 	max-width: 100%;
 	margin-inline-start: auto;
-	padding: 0.25rem 0.5rem;
-	border: 1px solid var(--plain-log-code-border);
-	border-radius: 4px;
+	padding: 0.125rem 0.25rem;
+	border: 0;
+	appearance: none;
 	background: transparent;
 	color: var(--plain-log-muted);
 	font: inherit;
 	font-size: 0.8125rem;
 	line-height: 1.5;
+	text-align: end;
 	white-space: nowrap;
 	cursor: pointer;
 }
@@ -618,13 +617,42 @@ body.single .site-main {
 }
 
 .single-entry .entry-content .code-content {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr);
 	min-width: 0;
 	max-width: 100%;
 	background: var(--plain-log-code-surface-background);
 }
 
+.single-entry .entry-content .code-line-numbers {
+	min-width: 3rem;
+	padding-block: var(--plain-log-code-padding-block);
+	padding-inline: 0.75rem;
+	border-inline-end: 1px solid var(--plain-log-code-border);
+	background: var(--plain-log-code-gutter-background);
+	color: var(--plain-log-muted);
+	font-family: var(--plain-log-font-mono);
+	font-size: var(--plain-log-code-font-size);
+	line-height: var(--plain-log-code-line-height);
+	text-align: end;
+	user-select: none;
+}
+
+.single-entry .entry-content .code-line-numbers span {
+	display: block;
+}
+
+.single-entry .entry-content .code-scroll {
+	min-width: 0;
+	overflow-x: auto;
+}
+
 .single-entry .entry-content .code-block pre {
+	width: max-content;
+	min-width: 100%;
+	max-width: none;
 	margin: 0;
+	overflow: visible;
 	border: 0;
 	border-radius: 0;
 	background: transparent;
@@ -855,8 +883,11 @@ body.single .site-main {
 		--plain-log-text: #eeeeee;
 		--plain-log-muted: #aaaaaa;
 		--plain-log-border: #444444;
+		--plain-log-chrome-background: #1a1a1a;
+		--plain-log-chrome-border: #303030;
 		--plain-log-code-background: #242424;
 		--plain-log-code-border: #3a3a3d;
+		--plain-log-code-gutter-background: #262626;
 		--plain-log-code-toolbar-background: #292929;
 		--plain-log-code-surface-background: #232323;
 		--plain-log-canvas-background: #151515;
@@ -895,7 +926,8 @@ body.single .site-main {
 	.post-navigation,
 	.search-form,
 	.code-toolbar,
-	.code-copy-button {
+	.code-copy-button,
+	.code-line-numbers {
 		display: none;
 	}
 
@@ -927,7 +959,18 @@ body.single .site-main {
 	}
 
 	.single-entry .entry-content .code-content {
+		display: block;
 		background: transparent;
+	}
+
+	.single-entry .entry-content .code-scroll {
+		overflow: visible;
+	}
+
+	.single-entry .entry-content .code-block pre {
+		width: auto;
+		min-width: 0;
+		max-width: 100%;
 	}
 
 	pre,

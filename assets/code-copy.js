@@ -20,8 +20,14 @@
 		var toolbarLabel = document.createElement('span');
 		var button = document.createElement('button');
 		var content = document.createElement('div');
+		var lineNumbers = document.createElement('div');
+		var lineNumbersFragment = document.createDocumentFragment();
+		var scroll = document.createElement('div');
+		var lineCount = pre.textContent.split(/\r\n|\r|\n/).length;
+		var lineNumber;
 		var resetTimer = 0;
 		var requestId = 0;
+		var i;
 
 		pre.setAttribute('data-code-copy-enhanced', 'true');
 		wrapper.className = 'code-block';
@@ -33,13 +39,26 @@
 		button.textContent = labels.copy;
 		button.setAttribute('aria-live', 'polite');
 		content.className = 'code-content';
+		lineNumbers.className = 'code-line-numbers';
+		lineNumbers.setAttribute('aria-hidden', 'true');
+		scroll.className = 'code-scroll';
+
+		for (i = 1; i <= lineCount; i += 1) {
+			lineNumber = document.createElement('span');
+			lineNumber.textContent = i;
+			lineNumbersFragment.appendChild(lineNumber);
+		}
+
+		lineNumbers.appendChild(lineNumbersFragment);
 
 		pre.parentNode.insertBefore(wrapper, pre);
 		wrapper.appendChild(toolbar);
 		wrapper.appendChild(content);
 		toolbar.appendChild(toolbarLabel);
 		toolbar.appendChild(button);
-		content.appendChild(pre);
+		content.appendChild(lineNumbers);
+		content.appendChild(scroll);
+		scroll.appendChild(pre);
 
 		function showStatus(text, activeRequestId) {
 			window.clearTimeout(resetTimer);
