@@ -391,7 +391,12 @@ body.search .archive-header .search-form {
 }
 
 .search-field,
-.search-submit {
+.search-submit,
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form input[type="url"],
+.comment-form textarea,
+.comment-form .submit {
 	min-width: 0;
 	max-width: 100%;
 	padding: 0.5rem 0.75rem;
@@ -405,7 +410,8 @@ body.search .archive-header .search-form {
 	width: 100%;
 }
 
-.search-submit {
+.search-submit,
+.comment-form .submit {
 	cursor: pointer;
 	font-weight: 600;
 }
@@ -762,6 +768,34 @@ body.search .archive-header .search-form {
 	border-top: 1px solid var(--plain-log-border);
 }
 
+.page-links {
+	display: flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+	gap: 0.375rem 0.75rem;
+	margin-top: 2rem;
+	padding-top: 1rem;
+	border-top: 1px solid var(--plain-log-border);
+	color: var(--plain-log-muted);
+	font-size: 0.875rem;
+	line-height: 1.5;
+}
+
+.page-links-label,
+.page-links .current {
+	color: var(--plain-log-text);
+	font-weight: 600;
+}
+
+.page-links a {
+	text-decoration: none;
+}
+
+.page-links a:hover,
+.page-links a:focus-visible {
+	color: var(--plain-log-text);
+}
+
 .single-post .single-entry .entry-content hr {
 	margin-block: 3rem;
 }
@@ -831,6 +865,145 @@ body.search .archive-header .search-form {
 	min-width: 0;
 	font-weight: 600;
 	overflow-wrap: anywhere;
+}
+
+.comments-area {
+	min-width: 0;
+	margin-top: 3rem;
+	padding-top: 2rem;
+	border-top: 1px solid var(--plain-log-border);
+}
+
+.comments-title,
+.comment-reply-title {
+	margin: 0 0 1.5rem;
+	font-size: 1.25rem;
+	font-weight: 600;
+	line-height: 1.3;
+	overflow-wrap: anywhere;
+}
+
+.comment-list,
+.comment-list .children {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.comment-list > li + li {
+	margin-top: 2rem;
+	padding-top: 2rem;
+	border-top: 1px solid var(--plain-log-border);
+}
+
+.comment-list .children {
+	margin-top: 1.5rem;
+	margin-inline-start: 0.75rem;
+	padding-inline-start: 0.75rem;
+	border-inline-start: 1px solid var(--plain-log-border);
+}
+
+.comment-list .children > li + li {
+	margin-top: 1.5rem;
+}
+
+.comment-content {
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+
+.comment-meta {
+	margin-bottom: 0.75rem;
+	color: var(--plain-log-muted);
+	font-size: 0.8125rem;
+	line-height: 1.5;
+}
+
+.comment-author .fn {
+	color: var(--plain-log-text);
+	font-weight: 600;
+}
+
+.comment-meta a,
+.reply a,
+.comment-navigation a,
+.logged-in-as a,
+.comment-reply-title a {
+	text-decoration: none;
+}
+
+.comment-content p {
+	margin-block: 1rem;
+}
+
+.comment-content a {
+	text-decoration: underline;
+}
+
+.reply {
+	margin-top: 0.75rem;
+	font-size: 0.8125rem;
+}
+
+.comment-navigation {
+	margin-block: 1.5rem;
+	color: var(--plain-log-muted);
+	font-size: 0.875rem;
+}
+
+.comment-navigation .nav-links {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 0.75rem 1rem;
+}
+
+.comment-respond {
+	margin-top: 2.5rem;
+}
+
+.comments-area > .comment-respond:first-child {
+	margin-top: 0;
+}
+
+.comment-form p {
+	margin-block: 1rem;
+}
+
+.comment-form > p > label {
+	display: block;
+	margin-bottom: 0.25rem;
+	font-size: 0.875rem;
+	font-weight: 600;
+}
+
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form input[type="url"],
+.comment-form textarea {
+	width: 100%;
+}
+
+.comment-form textarea {
+	min-height: 8rem;
+	resize: vertical;
+}
+
+.comment-notes,
+.logged-in-as {
+	color: var(--plain-log-muted);
+	font-size: 0.875rem;
+}
+
+.comment-form-cookies-consent {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.5rem;
+}
+
+.comment-form-cookies-consent label {
+	margin: 0;
+	font-weight: 400;
 }
 
 .site-footer {
@@ -933,6 +1106,16 @@ body.search .archive-header .search-form {
 	.search-submit {
 		justify-self: start;
 	}
+
+	.comment-list .children {
+		margin-inline-start: 0;
+		padding-inline-start: 0.75rem;
+	}
+
+	.comment-list .children .children {
+		padding-inline-start: 0;
+		border-inline-start: 0;
+	}
 }
 
 @media (prefers-color-scheme: dark) {
@@ -987,6 +1170,8 @@ body.search .archive-header .search-form {
 	.archive-pagination,
 	.search-pagination,
 	.post-navigation,
+	.page-links,
+	.comments-area,
 	.search-form,
 	.code-toolbar,
 	.code-copy-button,

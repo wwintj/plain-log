@@ -66,6 +66,18 @@ get_header();
 
 			<div class="entry-content">
 				<?php the_content(); ?>
+				<?php
+				wp_link_pages(
+					array(
+						'before' => sprintf(
+							'<nav class="page-links" aria-label="%1$s"><span class="page-links-label">%2$s</span>',
+							esc_attr__( 'Page navigation', 'plain-log' ),
+							esc_html__( 'Pages:', 'plain-log' )
+						),
+						'after'  => '</nav>',
+					)
+				);
+				?>
 			</div>
 
 			<?php if ( ! empty( $tag_links ) ) : ?>
@@ -77,6 +89,12 @@ get_header();
 				</footer>
 			<?php endif; ?>
 		</article>
+
+		<?php
+		if ( comments_open() || get_comments_number() ) {
+			comments_template();
+		}
+		?>
 
 		<?php if ( $previous_post || $next_post ) : ?>
 			<nav class="post-navigation" aria-label="<?php esc_attr_e( 'Post navigation', 'plain-log' ); ?>">

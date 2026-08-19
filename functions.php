@@ -63,6 +63,16 @@ function plain_log_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'plain_log_enqueue_styles' );
 
 /**
+ * Enqueue WordPress Core threaded-comment support when it is needed.
+ */
+function plain_log_enqueue_comment_reply() {
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'plain_log_enqueue_comment_reply' );
+
+/**
  * Enqueue the code-copy enhancement only when the current post needs it.
  */
 function plain_log_enqueue_code_copy() {
