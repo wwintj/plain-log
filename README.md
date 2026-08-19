@@ -65,8 +65,9 @@ of the Plain Log V1 design.
 ## Code Blocks
 
 Code blocks preserve whitespace and scroll horizontally when necessary. On a
-Single Post containing code, a small Copy control is loaded conditionally.
-Plain Log does not add syntax highlighting or line numbers.
+Single Post containing code, Plain Log progressively enhances code blocks with
+line numbers and a small Copy control. Line numbers are visual only and are not
+included in copied code. Plain Log does not add syntax highlighting.
 
 ## Localization
 
