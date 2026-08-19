@@ -34,6 +34,28 @@ Domain Path: /languages
 	--plain-log-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
+html:lang(zh-TW),
+html:lang(zh-Hant) {
+	--plain-log-font-sans: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Microsoft JhengHei UI", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html:lang(zh-CN),
+html:lang(zh-Hans) {
+	--plain-log-font-sans: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "Microsoft YaHei UI", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html:lang(zh-HK) {
+	--plain-log-font-sans: "PingFang HK", "Noto Sans HK", "Microsoft JhengHei", "Microsoft JhengHei UI", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html:lang(zh-TW) .site-title,
+html:lang(zh-Hant) .site-title,
+html:lang(zh-CN) .site-title,
+html:lang(zh-Hans) .site-title,
+html:lang(zh-HK) .site-title {
+	letter-spacing: normal;
+}
+
 * {
 	box-sizing: border-box;
 }
