@@ -348,11 +348,13 @@ body.home .home-entry-category a:focus-visible {
 	overflow-wrap: anywhere;
 }
 
-.archive-header {
+.archive-header,
+.single-entry-header {
 	margin-bottom: 2.5rem;
 }
 
-.archive-title {
+.archive-title,
+.single-entry-title {
 	margin: 0;
 	font-size: 1.875rem;
 	font-weight: 600;
@@ -442,18 +444,6 @@ body.search .archive-header .search-form {
 
 .single-entry {
 	min-width: 0;
-}
-
-.single-entry-header {
-	margin-bottom: 2.5rem;
-}
-
-.single-entry-title {
-	margin: 0;
-	font-size: 1.875rem;
-	font-weight: 600;
-	line-height: 1.25;
-	overflow-wrap: anywhere;
 }
 
 .single-entry-meta {
