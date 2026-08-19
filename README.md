@@ -5,6 +5,8 @@ A minimal, text-first WordPress theme for personal logs and technical notes.
 ## Features
 
 - Classic WordPress theme with a chronological, text-first home index
+- Consistent responsive canvas and surface layout across Home, Single Posts,
+  archives, search, Pages, utility indexes, and 404 pages
 - Post ID friendly design with Category, Tag, year, and month archives
 - All-post Archive index, Search, and Categories/Tags indexes
 - Minimal Single Post layout with Published/Updated metadata, Tags, and Previous/Next navigation
