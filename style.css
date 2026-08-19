@@ -173,23 +173,27 @@ pre {
 	padding-block: 2.5rem;
 }
 
-body.single {
+body.single,
+body.home {
 	background: var(--plain-log-canvas-background);
 }
 
-body.single .site-header {
+body.single .site-header,
+body.home .site-header {
 	width: min(826px, calc(100% - 2rem));
 	margin-block-start: 1rem;
 	padding-inline: 2rem;
 }
 
-body.single .site-footer {
+body.single .site-footer,
+body.home .site-footer {
 	width: min(826px, calc(100% - 2rem));
 	margin-block-end: 1rem;
 	padding-inline: 2rem;
 }
 
-body.single .site-main {
+body.single .site-main,
+body.home .home-index {
 	width: min(826px, calc(100% - 2rem));
 	margin-block: 1.25rem 1.5rem;
 	padding: 2.25rem 2rem 2.5rem;
@@ -217,6 +221,15 @@ body.single .site-main {
 	font-size: 1.25rem;
 	font-weight: 600;
 	line-height: 1.25;
+}
+
+body.home .year-group + .year-group {
+	margin-top: 3rem;
+}
+
+body.home .year-title {
+	padding-bottom: 0.75rem;
+	border-bottom: 1px solid var(--plain-log-border);
 }
 
 .home-entry,
@@ -267,6 +280,24 @@ body.single .site-main {
 	overflow-wrap: anywhere;
 }
 
+body.home .home-entry {
+	grid-template-columns: 4rem minmax(0, 1fr);
+}
+
+body.home .home-entry-title a:hover,
+body.home .home-entry-title a:focus-visible {
+	color: var(--plain-log-muted);
+}
+
+body.home .home-entry-category {
+	font-size: 0.8125rem;
+}
+
+body.home .home-entry-category a:hover,
+body.home .home-entry-category a:focus-visible {
+	color: var(--plain-log-text);
+}
+
 .site-title a,
 .site-navigation a,
 .home-entry-title a,
@@ -291,6 +322,15 @@ body.single .site-main {
 	margin-top: 3.5rem;
 	padding-top: 1.5rem;
 	border-top: 1px solid var(--plain-log-border);
+}
+
+body.home .home-pagination {
+	color: var(--plain-log-muted);
+}
+
+body.home .home-pagination a:hover,
+body.home .home-pagination a:focus-visible {
+	color: var(--plain-log-text);
 }
 
 .home-pagination-newer,
@@ -826,11 +866,15 @@ body.single .site-main {
 @media (max-width: 40rem) {
 	body.single .site-header,
 	body.single .site-main,
-	body.single .site-footer {
+	body.single .site-footer,
+	body.home .site-header,
+	body.home .home-index,
+	body.home .site-footer {
 		width: calc(100% - 1rem);
 	}
 
-	body.single .site-main {
+	body.single .site-main,
+	body.home .home-index {
 		margin-block: 1.25rem 1.5rem;
 		padding: 1.5rem 1rem 1.75rem;
 		border-radius: 8px;
@@ -842,7 +886,9 @@ body.single .site-main {
 	}
 
 	body.single .site-header,
-	body.single .site-footer {
+	body.single .site-footer,
+	body.home .site-header,
+	body.home .site-footer {
 		padding-inline: 1rem;
 	}
 
@@ -917,7 +963,8 @@ body.single .site-main {
 		color: #000000;
 	}
 
-	body.single {
+	body.single,
+	body.home {
 		background: #ffffff;
 	}
 
@@ -941,7 +988,8 @@ body.single .site-main {
 		padding: 0;
 	}
 
-	body.single .site-main {
+	body.single .site-main,
+	body.home .home-index {
 		width: 100%;
 		margin: 0;
 		padding: 0;
