@@ -175,12 +175,16 @@ pre {
 }
 
 body.single,
-body.home {
+body.home,
+body.archive,
+body.search {
 	background: var(--plain-log-canvas-background);
 }
 
 body.single .site-main,
-body.home .home-index {
+body.home .home-index,
+body.archive .archive-index,
+body.search .search-results-index {
 	width: min(826px, calc(100% - 2rem));
 	margin-block: 1.25rem 1.5rem;
 	padding: 2.25rem 2rem 2.5rem;
@@ -309,14 +313,15 @@ body.home .home-entry-category a:focus-visible {
 	margin-top: 3.5rem;
 	padding-top: 1.5rem;
 	border-top: 1px solid var(--plain-log-border);
-}
-
-body.home .home-pagination {
 	color: var(--plain-log-muted);
 }
 
-body.home .home-pagination a:hover,
-body.home .home-pagination a:focus-visible {
+.home-pagination a:hover,
+.home-pagination a:focus-visible,
+.archive-pagination a:hover,
+.archive-pagination a:focus-visible,
+.search-pagination a:hover,
+.search-pagination a:focus-visible {
 	color: var(--plain-log-text);
 }
 
@@ -349,6 +354,22 @@ body.home .home-pagination a:focus-visible {
 	font-weight: 600;
 	line-height: 1.25;
 	overflow-wrap: anywhere;
+}
+
+body.archive .archive-header,
+body.search .archive-header {
+	margin-bottom: 2rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid var(--plain-log-border);
+}
+
+body.archive .archive-title,
+body.search .archive-title {
+	font-size: 1.75rem;
+}
+
+body.search .archive-header .search-form {
+	margin-bottom: 0;
 }
 
 .search-form {
@@ -853,7 +874,9 @@ body.home .home-pagination a:focus-visible {
 
 @media (max-width: 40rem) {
 	body.single .site-main,
-	body.home .home-index {
+	body.home .home-index,
+	body.archive .archive-index,
+	body.search .search-results-index {
 		width: calc(100% - 1rem);
 		margin-block: 1.25rem 1.5rem;
 		padding: 1.5rem 1rem 1.75rem;
@@ -939,7 +962,9 @@ body.home .home-pagination a:focus-visible {
 	}
 
 	body.single,
-	body.home {
+	body.home,
+	body.archive,
+	body.search {
 		background: #ffffff;
 	}
 
@@ -964,7 +989,9 @@ body.home .home-pagination a:focus-visible {
 	}
 
 	body.single .site-main,
-	body.home .home-index {
+	body.home .home-index,
+	body.archive .archive-index,
+	body.search .search-results-index {
 		width: 100%;
 		margin: 0;
 		padding: 0;
