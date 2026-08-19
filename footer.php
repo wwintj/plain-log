@@ -42,7 +42,7 @@ if ( $tags_page instanceof WP_Post && 'publish' === $tags_page->post_status ) {
 				<li><a href="<?php echo esc_url( $tags_url ); ?>"><?php echo esc_html( $tags_title ); ?></a></li>
 			<?php endif; ?>
 
-			<li><a href="<?php echo esc_url( get_bloginfo( 'rss2_url' ) ); ?>">RSS</a></li>
+			<li><a href="<?php echo esc_url( get_bloginfo( 'rss2_url' ) ); ?>"><?php esc_html_e( 'RSS', 'plain-log' ); ?></a></li>
 		</ul>
 	</nav>
 </footer>

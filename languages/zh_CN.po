@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Plain Log 1.2.0\n"
 "Report-Msgid-Bugs-To: https://github.com/wwintj/plain-log/issues\n"
-"POT-Creation-Date: 2026-08-19 05:43+0800\n"
-"PO-Revision-Date: 2026-08-19 05:43+0800\n"
+"POT-Creation-Date: 2026-08-20 04:08+0800\n"
+"PO-Revision-Date: 2026-08-20 04:08+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -30,7 +30,7 @@ msgid "Archives"
 msgstr "归档"
 
 #: archive.php:51 home.php:34 index.php:27 page-archive.php:57 page.php:23
-#: search.php:38 single.php:32 single.php:88 single.php:102
+#: search.php:38 single.php:32 single.php:106 single.php:120
 msgid "Untitled"
 msgstr "无标题"
 
@@ -50,6 +50,13 @@ msgstr "归档分页"
 msgid "No posts found."
 msgstr "未找到文章。"
 
+#. translators: %s: Number of comments.
+#: comments.php:19
+#, php-format
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] "%s 条评论"
+
 #: footer.php:20 page-categories.php:32 page-categories.php:62
 msgid "Categories"
 msgstr "分类"
@@ -62,23 +69,27 @@ msgstr "标签"
 msgid "Footer navigation"
 msgstr "页脚导航"
 
+#: footer.php:45
+msgid "RSS"
+msgstr "RSS"
+
 #: functions.php:35
 msgid "Primary Menu"
 msgstr "主菜单"
 
-#: functions.php:112
+#: functions.php:122
 msgid "Code"
 msgstr "代码"
 
-#: functions.php:113
+#: functions.php:123
 msgid "Copy"
 msgstr "复制"
 
-#: functions.php:114
+#: functions.php:124
 msgid "Copied"
 msgstr "已复制"
 
-#: functions.php:115
+#: functions.php:125
 msgid "Copy failed"
 msgstr "复制失败"
 
@@ -122,6 +133,14 @@ msgstr "输入搜索关键词。"
 msgid "No tags found."
 msgstr "未找到标签。"
 
+#: page.php:39 single.php:74
+msgid "Page navigation"
+msgstr "页面导航"
+
+#: page.php:40 single.php:75
+msgid "Pages:"
+msgstr "页面："
+
 #: search.php:65
 msgid "Search pagination"
 msgstr "搜索结果分页"
@@ -138,22 +157,22 @@ msgstr "发布于"
 msgid "Updated"
 msgstr "更新于"
 
-#: single.php:74
+#: single.php:86
 msgid "Tags:"
 msgstr "标签："
 
-#: single.php:82
+#: single.php:100
 msgid "Post navigation"
 msgstr "文章导航"
 
 #. translators: %s: Previous post title.
-#: single.php:91
+#: single.php:109
 #, php-format
 msgid "Previous: %s"
 msgstr "上一篇：%s"
 
 #. translators: %s: Next post title.
-#: single.php:105
+#: single.php:123
 #, php-format
 msgid "Next: %s"
 msgstr "下一篇：%s"
