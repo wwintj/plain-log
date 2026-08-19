@@ -177,14 +177,18 @@ pre {
 body.single,
 body.home,
 body.archive,
-body.search {
+body.search,
+body.page,
+body.error404 {
 	background: var(--plain-log-canvas-background);
 }
 
 body.single .site-main,
 body.home .home-index,
 body.archive .archive-index,
-body.search .search-results-index {
+body.search .search-results-index,
+body.page .site-main,
+body.error404 .site-main {
 	width: min(826px, calc(100% - 2rem));
 	margin-block: 1.25rem 1.5rem;
 	padding: 2.25rem 2rem 2.5rem;
@@ -357,14 +361,18 @@ body.home .home-entry-category a:focus-visible {
 }
 
 body.archive .archive-header,
-body.search .archive-header {
+body.search .archive-header,
+body.page .archive-index .archive-header,
+body.error404 .archive-header {
 	margin-bottom: 2rem;
 	padding-bottom: 1rem;
 	border-bottom: 1px solid var(--plain-log-border);
 }
 
 body.archive .archive-title,
-body.search .archive-title {
+body.search .archive-title,
+body.page .archive-index .archive-title,
+body.error404 .archive-title {
 	font-size: 1.75rem;
 }
 
@@ -428,6 +436,7 @@ body.search .archive-header .search-form {
 .taxonomy-index-count {
 	min-width: 0;
 	color: var(--plain-log-muted);
+	font-size: 0.8125rem;
 	overflow-wrap: anywhere;
 }
 
@@ -844,6 +853,15 @@ body.search .archive-header .search-form {
 	text-decoration: none;
 }
 
+.utility-link {
+	color: var(--plain-log-muted);
+}
+
+.utility-link:hover,
+.utility-link:focus-visible {
+	color: var(--plain-log-text);
+}
+
 .skip-link,
 .screen-reader-text {
 	position: absolute;
@@ -876,7 +894,9 @@ body.search .archive-header .search-form {
 	body.single .site-main,
 	body.home .home-index,
 	body.archive .archive-index,
-	body.search .search-results-index {
+	body.search .search-results-index,
+	body.page .site-main,
+	body.error404 .site-main {
 		width: calc(100% - 1rem);
 		margin-block: 1.25rem 1.5rem;
 		padding: 1.5rem 1rem 1.75rem;
@@ -964,7 +984,9 @@ body.search .archive-header .search-form {
 	body.single,
 	body.home,
 	body.archive,
-	body.search {
+	body.search,
+	body.page,
+	body.error404 {
 		background: #ffffff;
 	}
 
@@ -991,7 +1013,9 @@ body.search .archive-header .search-form {
 	body.single .site-main,
 	body.home .home-index,
 	body.archive .archive-index,
-	body.search .search-results-index {
+	body.search .search-results-index,
+	body.page .site-main,
+	body.error404 .site-main {
 		width: 100%;
 		margin: 0;
 		padding: 0;
