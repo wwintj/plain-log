@@ -73,6 +73,8 @@ Plain Log does not add analytics, telemetry, advertising, remote fonts, external
 * Internationalized the RSS footer label.
 * Added WordPress and PHP compatibility metadata.
 * Added WordPress.org distribution documentation.
+* Added a WordPress.org theme screenshot.
+* Refined Previous/Next post navigation for balanced desktop and mobile layouts.
 
 = 1.2.0 =
 * Unified responsive surface layouts across Home, archives, search, Pages, utility indexes, and 404 pages.
