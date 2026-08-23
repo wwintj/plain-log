@@ -863,7 +863,9 @@ body.search .archive-header .search-form {
 
 .post-navigation {
 	display: flex;
-	flex-direction: column;
+	align-items: flex-start;
+	flex-direction: row;
+	justify-content: space-between;
 	gap: 1rem;
 	margin-top: 3rem;
 	padding-top: 1.75rem;
@@ -873,11 +875,19 @@ body.search .archive-header .search-form {
 .post-navigation a {
 	display: flex;
 	align-items: baseline;
+	flex: 1 1 0;
 	gap: 0.5rem;
 	align-self: flex-start;
+	min-width: 0;
 	max-width: 100%;
 	line-height: 1.5;
 	overflow-wrap: anywhere;
+}
+
+.post-navigation a[rel="next"] {
+	justify-content: flex-end;
+	margin-inline-start: auto;
+	text-align: end;
 }
 
 .post-navigation-label {
@@ -1122,6 +1132,18 @@ body.search .archive-header .search-form {
 
 	.single-post .single-entry-title {
 		font-size: 1.8125rem;
+	}
+
+	.post-navigation {
+		flex-direction: column;
+	}
+
+	.post-navigation a {
+		flex: 0 1 auto;
+	}
+
+	.post-navigation a[rel="next"] {
+		align-self: flex-end;
 	}
 
 	.search-form {
