@@ -65,6 +65,9 @@ Plain Log does not add analytics, telemetry, advertising, remote fonts, external
 
 == Changelog ==
 
+= 1.3.1 =
+* Added WordPress.org directory theme tags required for submission.
+
 = 1.3.0 =
 * Added WordPress Core comments support.
 * Added multipage post and page navigation.
@@ -91,6 +94,9 @@ Plain Log does not add analytics, telemetry, advertising, remote fonts, external
 * Added conditional code copying, system dark mode, print styles, and Simplified Chinese localization.
 
 == Upgrade Notice ==
+
+= 1.3.1 =
+Adds WordPress.org directory metadata required for theme submission.
 
 = 1.3.0 =
 Adds Core comments support, multipage content navigation, Traditional Chinese localization, and locale-aware Chinese system font stacks.
